@@ -2,7 +2,7 @@ import { MuhaqqiqEditor } from '@muhaqqiq-editor/react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {
-  title: 'Example/Page',
+  title: 'CoreMuhaqqiq',
   component: MuhaqqiqEditor,
   parameters: {
     // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout

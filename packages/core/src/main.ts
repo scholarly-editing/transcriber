@@ -1,24 +1,13 @@
-import './style.css';
-import viteLogo from '/vite.svg';
-import { setupCounter } from './counter.ts';
-import typescriptLogo from './typescript.svg';
+// Main entry point for the transcription-tool package
+// This file will export all public APIs
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`;
+// Export the CodeMirror mount function
+export * from './editor/mount-editor';
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!);
+// TODO: Uncomment these exports as implementation progresses
+// export * from './core/models';
+// export * from './core/transcription-manager';
+// export * from './state/state-manager';
+// export * from './processors/line-processor';
+// export * from './processors/segmentation-processor';
+// export * from './utils/helpers';
