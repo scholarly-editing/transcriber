@@ -1,4 +1,4 @@
-import type { TranscriptionDocument } from './apm-document.model.ts'
+import type { TranscriptionDocument } from './document.model.ts'
 
 export interface ITranscriptionEditor {
   /**

@@ -1,0 +1,30 @@
+{
+  "name": "@muhaqqiq-editor/apm-adapter",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "./dist/muhaqqiq-apm-adapter.umd.cjs",
+  "module": "./dist/muhaqqiq-apm-adapter.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/muhaqqiq-apm-adapter.js",
+      "require": "./dist/muhaqqiq-apm-adapter.umd.cjs"
+    }
+  },
+  "scripts": {
+    "dev": "tsc --watch --noEmit",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.2",
+    "typescript": "~5.9.3",
+    "vite": "^7.2.4",
+    "vite-plugin-dts": "^4.5.4"
+  },
+  "peerDependencies": {
+    "@muhaqqiq-editor/core": "workspace:*"
+  }
+}

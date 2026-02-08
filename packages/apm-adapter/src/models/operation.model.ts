@@ -115,4 +115,4 @@ export interface TextOperation {
   /** Semantic and visual formatting applied to this text */
   attributes?: TextAttributes
 }
-export type Operation = TextOperation | EmbedOperation;
+export type Operation = TextOperation | EmbedOperation

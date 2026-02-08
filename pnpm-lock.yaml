@@ -49,6 +49,25 @@ importers:
         specifier: ^7.2.4
         version: 7.3.1(@types/node@24.10.12)
 
+  packages/apm-adapter:
+    dependencies:
+      '@muhaqqiq-editor/core':
+        specifier: workspace:*
+        version: link:../core
+    devDependencies:
+      '@types/node':
+        specifier: ^25.2.2
+        version: 25.2.2
+      typescript:
+        specifier: ~5.9.3
+        version: 5.9.3
+      vite:
+        specifier: ^7.2.4
+        version: 7.3.1(@types/node@25.2.2)
+      vite-plugin-dts:
+        specifier: ^4.5.4
+        version: 4.5.4(@types/node@25.2.2)(rollup@4.57.1)(typescript@5.9.3)(vite@7.3.1(@types/node@25.2.2))
+
   packages/core:
     dependencies:
       '@codemirror/state':

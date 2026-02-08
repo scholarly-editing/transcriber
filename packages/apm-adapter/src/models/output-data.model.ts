@@ -1,5 +1,5 @@
-import type { Note } from './apm-note.model.ts'
-import type { Operation } from './apm-operation.model.ts'
+import type { Note } from './note.model.ts'
+import type { Operation } from './operation.model.ts'
 
 export interface OutputData {
   /**
