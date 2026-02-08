@@ -7,7 +7,53 @@
     <title>core</title>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
+    <div id="app">
+      <h1>Muhaqqiq Core - Vanilla Example</h1>
+      <div id="editor-container" style="border: 1px solid #ccc; min-height: 400px; margin: 20px 0;"></div>
+      <div style="margin: 20px 0;">
+        <button id="get-content">Get Content</button>
+        <button id="set-content">Set Content</button>
+        <button id="destroy-editor">Destroy Editor</button>
+      </div>
+      <pre id="output" style="background: #f5f5f5; padding: 10px; min-height: 100px;"></pre>
+    </div>
+    <script type="module">
+      import { mountEditor } from '/src/index.ts';
+
+      
+      const container = document.getElementById('editor-container');
+      const output = document.getElementById('output');
+      
+      // Mount the editor
+      const editor = mountEditor({
+        parent: container,
+        doc: 'Welcome to Muhaqqiq Editor!\n\nThis is a vanilla JavaScript example using CodeMirror 6.\n\nTry editing this text...',
+        setup: 'basic',
+        onDocChange: (doc) => {
+          output.textContent = `Content changed (${new Date().toLocaleTimeString()}):\n${doc}`;
+        }
+      });
+      
+      // Button handlers
+      document.getElementById('get-content').onclick = () => {
+        const content = editor.getDoc();
+        output.textContent = `Current content:\n${content}`;
+      };
+      
+      document.getElementById('set-content').onclick = () => {
+        const newContent = 'This content was set programmatically!\n\nThe previous content has been replaced.';
+        editor.setDoc(newContent);
+        output.textContent = 'Content set programmatically';
+      };
+      
+      document.getElementById('destroy-editor').onclick = () => {
+        editor.destroy();
+        output.textContent = 'Editor destroyed. Refresh page to reinitialize.';
+        document.getElementById('destroy-editor').disabled = true;
+      };
+      
+      // Show initial content
+      output.textContent = 'Editor initialized. Start typing to see changes...';
+    </script>
   </body>
 </html>
