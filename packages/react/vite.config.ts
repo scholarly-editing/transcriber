@@ -1,16 +1,19 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import dts from 'vite-plugin-dts';
-import { resolve } from 'path';
+import { resolve } from 'node:path'
+import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite'
+import dts from 'vite-plugin-dts'
 
 export default defineConfig({
-  plugins: [react(), dts({ 
-    tsconfigPath: resolve(__dirname, 'tsconfig.app.json'),
-    rollupTypes: false 
-  })],
+  plugins: [
+    react(),
+    dts({
+      tsconfigPath: resolve(__dirname, 'tsconfig.app.json'),
+      rollupTypes: false,
+    }),
+  ],
   build: {
     lib: {
-      entry: resolve(__dirname, 'src/index.ts'), 
+      entry: resolve(__dirname, 'src/index.ts'),
       name: 'MuhaqqiqReact',
       fileName: 'muhaqqiq-react',
     },
@@ -20,9 +23,9 @@ export default defineConfig({
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
-          '@muhaqqiq-editor/core': 'MuhaqqiqCore'
-        }
-      }
+          '@muhaqqiq-editor/core': 'MuhaqqiqCore',
+        },
+      },
     },
   },
-});
+})

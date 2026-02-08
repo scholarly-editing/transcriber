@@ -1,11 +1,13 @@
-import { defineConfig } from 'vite';
-import dts from 'vite-plugin-dts';
-import { resolve } from 'path';
+import { resolve } from 'node:path'
+import { defineConfig } from 'vite'
+import dts from 'vite-plugin-dts'
 
 export default defineConfig({
-  plugins: [dts({ 
-    rollupTypes: false 
-  })],
+  plugins: [
+    dts({
+      rollupTypes: false,
+    }),
+  ],
   build: {
     lib: {
       entry: resolve(__dirname, 'src/main.ts'),
@@ -13,4 +15,4 @@ export default defineConfig({
       fileName: 'muhaqqiq-core',
     },
   },
-});
+})
