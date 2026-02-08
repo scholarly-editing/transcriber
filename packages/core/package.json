@@ -1,0 +1,31 @@
+{
+  "name": "@muhaqqiq-editor/core",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.2",
+    "typescript": "~5.9.3",
+    "vite": "^7.2.4",
+    "vite-plugin-dts": "^4.5.4"
+  },
+  "dependencies": {
+    "@codemirror/state": "^6.5.4",
+    "@codemirror/view": "^6.39.12",
+    "codemirror": "^6.0.2"
+  },
+  "main": "./dist/muhaqqiq-core.umd.cjs",
+  "module": "./dist/muhaqqiq-core.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/muhaqqiq-core.js",
+      "require": "./dist/muhaqqiq-core.umd.cjs"
+    }
+  }
+}
