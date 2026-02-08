@@ -1,5 +1,5 @@
-import type { Note } from './note.model.ts'
-import type { Operation } from './operation.model.ts'
+import type { Note } from './note.model.ts';
+import type { Operation } from './operation.model.ts';
 
 export interface OutputData {
   /**
@@ -8,10 +8,10 @@ export interface OutputData {
    * bold, italic, lang, deletion, addition, unclear, marginalmark,
    * linegap, chunkmark, chaptermark.
    */
-  ops: Operation[]
+  ops: Operation[];
 
   /**
    * Any new editorial notes created during the session.
    */
-  newNotes: Note[]
+  newNotes: Note[];
 }

@@ -60,7 +60,7 @@
   "javascript": {
     "formatter": {
       "quoteStyle": "single",
-      "semicolons": "asNeeded",
+      "semicolons": "always",
       "trailingCommas": "es5",
       "arrowParentheses": "asNeeded",
       "bracketSpacing": true,

@@ -1,6 +1,6 @@
-import { resolve } from 'node:path'
-import { defineConfig } from 'vite'
-import dts from 'vite-plugin-dts'
+import { resolve } from 'node:path';
+import { defineConfig } from 'vite';
+import dts from 'vite-plugin-dts';
 
 export default defineConfig({
   plugins: [
@@ -15,4 +15,4 @@ export default defineConfig({
       fileName: 'muhaqqiq-core',
     },
   },
-})
+});
