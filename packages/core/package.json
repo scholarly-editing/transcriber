@@ -24,6 +24,7 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/muhaqqiq-core.js",
       "require": "./dist/muhaqqiq-core.umd.cjs"
     }

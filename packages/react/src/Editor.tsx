@@ -11,7 +11,7 @@ export const MuhaqqiqEditor: React.FC<EditorProps> = ({ content, onChange }) => 
       <textarea 
         value={content} 
         onChange={(e) => onChange?.(e.target.value)}
-        placeholder="Type something..."
+        placeholder="Type something..., or dont"
         style={{ width: '100%', height: '300px', border: '1px solid #ccc', padding: '10px' }}
       />
     </div>
