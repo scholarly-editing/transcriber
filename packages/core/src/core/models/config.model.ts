@@ -32,19 +32,29 @@ export interface IDividerConfig {
   precedence?: number;
 }
 
-export interface IEditorConfig {
-  word: IWordConfig[];
-  prefix?: IPrefixConfig[];
-  suffix?: ISuffixConfig[];
-  brackets?: IBracketsConfig[];
-  dividers?: IDividerConfig[];
+export interface IThemeSettings {
   direction: "ltr" | "rtl";
-  editingEnabled: boolean;
-  highlightingEnabled: boolean;
+  textFont: string;
+  gutterFont: string;
   minFontSize: number;
   maxFontSize: number;
   lineNumbers: {
     margin: number;
     fontFactor: number;
   };
+}
+
+export type IThemeOverride = Record<string, Record<string, string>>;
+
+export type IEditorTheme = IThemeSettings | IThemeOverride;
+
+export interface IEditorConfig {
+  word: IWordConfig[];
+  prefix?: IPrefixConfig[];
+  suffix?: ISuffixConfig[];
+  brackets?: IBracketsConfig[];
+  dividers?: IDividerConfig[];
+  theme: IEditorTheme;
+  editingEnabled: boolean;
+  highlightingEnabled: boolean;
 }

@@ -1,6 +1,7 @@
 import { EditorState, type Extension } from '@codemirror/state';
 import { EditorView } from '@codemirror/view';
-import { basicSetup, minimalSetup } from './basic-setup';
+import { editorSetup } from './editor-setup.ts';
+import {createEditorTheme} from './editor-theme.ts';
 
 /**
  * Configuration options for mounting a CodeMirror editor
@@ -16,12 +17,6 @@ export interface MountEditorOptions {
    * @default ""
    */
   doc?: string;
-
-  /**
-   * Use basic setup (comprehensive) or minimal setup
-   * @default "minimal"
-   */
-  setup?: 'basic' | 'minimal';
 
   /**
    * Additional CodeMirror extensions to include
@@ -85,13 +80,10 @@ export interface MountedEditor {
  * ```
  */
 export function mountEditor(options: MountEditorOptions): MountedEditor {
-  const { parent, doc = '', setup = 'minimal', extensions = [], onDocChange, onUpdate } = options;
+  const { parent, doc = '', extensions = [], onDocChange, onUpdate } = options;
 
   // Build extensions array
-  const editorExtensions: Extension[] = [
-    setup === 'basic' ? basicSetup : minimalSetup,
-    ...extensions,
-  ];
+  const editorExtensions: Extension[] = [editorSetup, createEditorTheme(), ...extensions];
 
   // Add update listener if callbacks are provided
   if (onDocChange || onUpdate) {
