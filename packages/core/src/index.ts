@@ -3,10 +3,16 @@
 
 // Models
 export * from './core/models';
+// Editor setup
+export { createConfiguredSetup, editorSetup } from './editor/editor-setup';
+// Extensions
+export { createCleanupExtension } from './editor/extensions/cleanup-extension';
+export { createHighlightExtension } from './editor/extensions/highlight-extension';
+export { createEditorKeymap } from './editor/extensions/keymap-extension';
 // Export the CodeMirror mount function
 export * from './editor/mount-editor';
-export * from './processors/line-processor';
 // Processors
+export * from './processors/line-processor';
 export * from './processors/text-data-processor';
 // State
 export * from './state/state-manager';

@@ -1,5 +1,5 @@
-import type { IDocument } from './document.model.ts';
 import type { IEditorConfig } from './config.model.ts';
+import type { IDocument } from './document.model.ts';
 
 export interface IMuhaqqiqEditorApi {
   initialData: IDocument;

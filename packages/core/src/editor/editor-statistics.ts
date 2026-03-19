@@ -1,4 +1,4 @@
-import { EditorSelection, SelectionRange, Line, EditorState } from '@codemirror/state';
+import type { EditorSelection, EditorState, Line, SelectionRange } from '@codemirror/state';
 
 export interface Statistics {
   /** total length of the document */

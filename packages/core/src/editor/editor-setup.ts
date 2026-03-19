@@ -15,6 +15,10 @@ import {
   keymap,
   lineNumbers,
 } from '@codemirror/view';
+import type { IEditorConfig } from '../core/models/config.model.ts';
+import { createCleanupExtension } from './extensions/cleanup-extension.ts';
+import { createHighlightExtension } from './extensions/highlight-extension.ts';
+import { createEditorKeymap } from './extensions/keymap-extension.ts';
 
 /**
  * A comprehensive set of extensions for CodeMirror including:
@@ -32,3 +36,26 @@ export const editorSetup: Extension = (() => [
   highlightActiveLineGutter(),
   keymap.of([...defaultKeymap, ...historyKeymap]),
 ])();
+
+/**
+ * Creates a fully configured extension bundle combining the base editor setup
+ * with config-driven cleanup, highlighting, and keymap extensions.
+ *
+ * @param config - Editor configuration driving symbol behavior
+ * @returns Combined CodeMirror extension
+ */
+export function createConfiguredSetup(config: IEditorConfig): Extension {
+  const extensions: Extension[] = [editorSetup];
+
+  extensions.push(createCleanupExtension(config));
+
+  if (config.highlightingEnabled) {
+    extensions.push(createHighlightExtension(config));
+  }
+
+  if (config.editingEnabled) {
+    extensions.push(createEditorKeymap(config));
+  }
+
+  return extensions;
+}
