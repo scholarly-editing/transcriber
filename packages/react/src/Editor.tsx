@@ -25,7 +25,6 @@ export const MuhaqqiqEditor: React.FC<EditorProps> = ({ content = '', onChange }
     mountedEditor.current = mountEditor({
       parent: editorRef.current,
       doc: contentRef.current,
-      setup: 'basic',
       onDocChange: (doc: string, _view: EditorView) => {
         onChangeRef.current?.(doc);
       },
