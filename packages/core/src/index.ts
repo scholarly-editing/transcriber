@@ -11,3 +11,4 @@ export * from './editor/mount-editor';
 // export * from './processors/line-processor';
 // export * from './processors/segmentation-processor';
 export * from './utils/helpers';
+export * from './utils/token-utils';

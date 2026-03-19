@@ -1,7 +1,7 @@
 import { EditorState, type Extension } from '@codemirror/state';
 import { EditorView } from '@codemirror/view';
 import { editorSetup } from './editor-setup.ts';
-import {createEditorTheme} from './editor-theme.ts';
+import { createEditorTheme } from './editor-theme.ts';
 
 /**
  * Configuration options for mounting a CodeMirror editor

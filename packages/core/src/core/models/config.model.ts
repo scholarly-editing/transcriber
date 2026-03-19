@@ -33,7 +33,7 @@ export interface IDividerConfig {
 }
 
 export interface IThemeSettings {
-  direction: "ltr" | "rtl";
+  direction: 'ltr' | 'rtl';
   textFont: string;
   gutterFont: string;
   minFontSize: number;
