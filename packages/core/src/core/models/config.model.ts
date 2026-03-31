@@ -32,6 +32,27 @@ export interface IDividerConfig {
   precedence?: number;
 }
 
+export interface ITagConfig {
+  symbol: string;
+  label: string;
+  precedence?: number;
+}
+
+export interface IBlockConfig {
+  startMarker: string;
+  type: 'STANDALONE' | 'WITH_TEXT';
+  hasText?: boolean;
+  endMarker?: string;
+  isInline?: boolean;
+  precedence?: number;
+}
+
+export interface IPageConfig {
+  prefix: string;
+  suffix: string;
+  precedence?: number;
+}
+
 export interface IThemeSettings {
   direction: 'ltr' | 'rtl';
   textFont: string;
@@ -54,6 +75,9 @@ export interface IEditorConfig {
   suffix?: ISuffixConfig[];
   brackets?: IBracketsConfig[];
   dividers?: IDividerConfig[];
+  tags?: ITagConfig[];
+  blocks?: IBlockConfig[];
+  pages?: IPageConfig[];
   theme: IEditorTheme;
   editingEnabled: boolean;
   highlightingEnabled: boolean;

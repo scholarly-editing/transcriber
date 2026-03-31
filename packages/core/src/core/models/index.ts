@@ -1,3 +1,4 @@
-export * from './config.model';
-export * from './document.model';
-export * from './editor-api.model';
+export * from './config.model.ts';
+export * from './diagnostic.model.ts';
+export * from './document.model.ts';
+export * from './editor-api.model.ts';

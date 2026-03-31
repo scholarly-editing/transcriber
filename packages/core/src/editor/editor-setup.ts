@@ -19,6 +19,7 @@ import type { IEditorConfig } from '../core/models/config.model.ts';
 import { createCleanupExtension } from './extensions/cleanup-extension.ts';
 import { createHighlightExtension } from './extensions/highlight-extension.ts';
 import { createEditorKeymap } from './extensions/keymap-extension.ts';
+import { createLintExtension } from './extensions/lint-extension.ts';
 
 /**
  * A comprehensive set of extensions for CodeMirror including:
@@ -51,6 +52,7 @@ export function createConfiguredSetup(config: IEditorConfig): Extension {
 
   if (config.highlightingEnabled) {
     extensions.push(createHighlightExtension(config));
+    extensions.push(createLintExtension(config));
   }
 
   if (config.editingEnabled) {

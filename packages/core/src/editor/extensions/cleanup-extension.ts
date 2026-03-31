@@ -1,4 +1,4 @@
-import { EditorState, type Extension } from '@codemirror/state';
+import { type ChangeSpec, EditorState, type Extension } from '@codemirror/state';
 import type { IEditorConfig } from '../../core/models/config.model.ts';
 
 function addCodePoints(set: Set<number>, str: string): void {
@@ -29,6 +29,7 @@ function addSymbolCodePoints(set: Set<number>, config: IEditorConfig): void {
     addCodePoints(set, b.close);
   }
   for (const d of config.dividers ?? []) addCodePoints(set, d.symbol);
+  for (const t of config.tags ?? []) addCodePoints(set, t.symbol);
 }
 
 /**
@@ -55,27 +56,35 @@ export function createCleanupExtension(config: IEditorConfig): Extension {
   return EditorState.transactionFilter.of(tr => {
     if (!tr.docChanged) return tr;
 
-    const changes: { from: number; to: number }[] = [];
+    try {
+      let needsFilter = false;
+      const changes: ChangeSpec[] = [];
 
-    tr.changes.iterChanges((_fromA, _toA, fromB, _toB, inserted) => {
-      const text = inserted.toString();
-      let pos = fromB;
-      for (const char of text) {
-        const cp = char.codePointAt(0);
-        const len = char.length;
-        // Always allow whitespace and newlines
-        if (char === ' ' || char === '\n' || char === '\t' || char === '\r') {
-          pos += len;
-          continue;
+      tr.changes.iterChanges((fromA, toA, _fromB, _toB, inserted) => {
+        const text = inserted.toString();
+        let filtered = '';
+        for (const char of text) {
+          const cp = char.codePointAt(0);
+          // Always allow whitespace and newlines
+          if (char === ' ' || char === '\n' || char === '\t' || char === '\r') {
+            filtered += char;
+            continue;
+          }
+          if (cp !== undefined && !allowed.has(cp)) {
+            needsFilter = true;
+            continue;
+          }
+          filtered += char;
         }
-        if (cp !== undefined && !allowed.has(cp)) {
-          changes.push({ from: pos, to: pos + len });
-        }
-        pos += len;
-      }
-    });
+        // Replace the original range with only the allowed characters
+        changes.push({ from: fromA, to: toA, insert: filtered });
+      });
 
-    if (changes.length === 0) return tr;
-    return [tr, { changes }];
+      if (!needsFilter) return tr;
+      return { changes, sequential: true };
+    } catch (err) {
+      console.error('[MuhaqqiqEditor] cleanup filter error:', err);
+      return tr;
+    }
   });
 }

@@ -4,6 +4,7 @@ import { createConfiguredSetup } from '../editor/editor-setup.ts';
 import { createEditorTheme } from '../editor/editor-theme.ts';
 import { TranscriptionStateManager } from '../state/transcription-state.ts';
 import type { IEditorConfig, IEditorTheme, IThemeSettings } from './models/config.model.ts';
+import type { IParserDiagnostic } from './models/diagnostic.model.ts';
 import type { IDocument } from './models/document.model.ts';
 import type { IMuhaqqiqEditorApi } from './models/editor-api.model.ts';
 
@@ -43,6 +44,7 @@ export class TranscriptionManager implements IMuhaqqiqEditorApi {
   private stateManager: TranscriptionStateManager;
   private view: EditorView | null = null;
   private unsubscribeChanges: (() => void) | null = null;
+  private unsubscribeDiagnostics: (() => void) | null = null;
   private updatingFromState = false;
 
   private setupCompartment = new Compartment();
@@ -90,6 +92,25 @@ export class TranscriptionManager implements IMuhaqqiqEditorApi {
     this.unsubscribeChanges = this.stateManager.onDocumentChange(callback);
   }
 
+  /**
+   * Subscribes to parser diagnostic changes. The callback fires whenever
+   * the diagnostics array is recomputed (on every text change).
+   * Returns an unsubscribe function. Only one subscriber at a time is supported;
+   * calling again replaces the previous subscription.
+   */
+  onDiagnosticsChange(callback: (diagnostics: IParserDiagnostic[]) => void): () => void {
+    if (this.unsubscribeDiagnostics) {
+      this.unsubscribeDiagnostics();
+    }
+    this.unsubscribeDiagnostics = this.stateManager.onDiagnosticsChange(callback);
+    return () => {
+      if (this.unsubscribeDiagnostics) {
+        this.unsubscribeDiagnostics();
+        this.unsubscribeDiagnostics = null;
+      }
+    };
+  }
+
   /** Mounts the CodeMirror editor into the given DOM element. Idempotent. */
   mount(parent: HTMLElement): void {
     if (this.view) return;
@@ -102,9 +123,13 @@ export class TranscriptionManager implements IMuhaqqiqEditorApi {
       this.themeCompartment.of(buildThemeExtension(config)),
       this.editableCompartment.of(EditorView.editable.of(config.editingEnabled)),
       EditorView.updateListener.of(update => {
-        if (update.docChanged && !this.updatingFromState) {
-          const text = update.state.doc.toString();
-          this.stateManager.updateFromEditor(text);
+        try {
+          if (update.docChanged && !this.updatingFromState) {
+            const text = update.state.doc.toString();
+            this.stateManager.updateFromEditor(text);
+          }
+        } catch (err) {
+          console.error('[MuhaqqiqEditor] update listener error:', err);
         }
       }),
     ];
@@ -134,6 +159,10 @@ export class TranscriptionManager implements IMuhaqqiqEditorApi {
     if (this.unsubscribeChanges) {
       this.unsubscribeChanges();
       this.unsubscribeChanges = null;
+    }
+    if (this.unsubscribeDiagnostics) {
+      this.unsubscribeDiagnostics();
+      this.unsubscribeDiagnostics = null;
     }
     this.stateManager.destroy();
   }

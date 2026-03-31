@@ -2,6 +2,8 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { StorybookConfig } from '@storybook/react-vite';
 import type { UserConfig } from 'vite';
+import topLevelAwait from 'vite-plugin-top-level-await';
+import wasm from 'vite-plugin-wasm';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -13,6 +15,7 @@ const config: StorybookConfig = {
   async viteFinal(config: UserConfig) {
     return {
       ...config,
+      plugins: [...(config.plugins ?? []), wasm(), topLevelAwait()],
       resolve: {
         ...config.resolve,
         alias: {

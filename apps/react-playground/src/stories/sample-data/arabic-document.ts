@@ -50,6 +50,13 @@ export const ARABIC_DOCUMENT: IDocument = {
           tokens: ['ويتساوى', 'في', 'فهمه', 'العلماء', 'والجهّال'],
           states: ['conjectural', 'sound', 'sound', 'sound', 'gloss'],
         },
+        {
+          id: 'line-ar-6',
+          elementId: 'elem-ar-1',
+          order: 5,
+          tokens: ['***', 'والنقل', '...', 'الكتاب'],
+          states: ['sound', 'emended', 'sound', 'editorial'],
+        },
       ],
     },
   ],

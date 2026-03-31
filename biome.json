@@ -81,6 +81,18 @@
   },
   "overrides": [
     {
+      "includes": ["**/parser/wasm/**"],
+      "formatter": {
+        "enabled": false
+      },
+      "linter": {
+        "enabled": false
+      },
+      "assist": {
+        "enabled": false
+      }
+    },
+    {
       "includes": ["apps/react-playground/**"],
       "linter": {
         "rules": {

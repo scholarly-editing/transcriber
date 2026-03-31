@@ -9,11 +9,9 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "@types/lodash": "^4.17.23",
     "@types/node": "^24.10.12",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
-    "@types/uuid": "^10.0.0",
     "@muhaqqiq-editor/core": "workspace:*",
     "@vitejs/plugin-react": "^5.1.1",
     "typescript": "~5.9.3",

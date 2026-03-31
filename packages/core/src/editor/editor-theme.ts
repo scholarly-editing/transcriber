@@ -69,10 +69,6 @@ export function createEditorTheme(options: IThemeOptions = {}) {
       color: 'red',
       textDecoration: 'underline',
     },
-    '.edition-symbol': {
-      color: '#767015',
-      fontWeight: 'bold',
-    },
   };
 
   // Add line font if specified

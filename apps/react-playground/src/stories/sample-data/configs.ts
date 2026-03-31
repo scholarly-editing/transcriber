@@ -36,6 +36,31 @@ export const ARABIC_CONFIG: IEditorConfig = {
     { open: '(', close: ')', label: 'gloss', precedence: 5 },
   ],
   dividers: [],
+  tags: [
+    { symbol: '***', label: 'lacuna', precedence: 1 },
+    { symbol: '...', label: 'damage', precedence: 2 },
+  ],
+  blocks: [
+    { startMarker: '[illustration]', type: 'STANDALONE', precedence: 1 },
+    {
+      startMarker: '[legend]',
+      type: 'WITH_TEXT',
+      hasText: true,
+      endMarker: '---',
+      precedence: 2,
+    },
+    {
+      startMarker: '[margin]',
+      type: 'WITH_TEXT',
+      hasText: true,
+      endMarker: '---',
+      precedence: 3,
+    },
+  ],
+  pages: [
+    { prefix: 'fol.', suffix: 'r' },
+    { prefix: 'fol.', suffix: 'v' },
+  ],
   theme: {
     direction: 'rtl',
     textFont: 'Noto Naskh Arabic, serif',
@@ -86,6 +111,10 @@ export const LATIN_CONFIG: IEditorConfig = {
     { open: '(', close: ')', label: 'gloss', precedence: 5 },
   ],
   dividers: [],
+  tags: [
+    { symbol: '***', label: 'lacuna', precedence: 1 },
+    { symbol: '...', label: 'damage', precedence: 2 },
+  ],
   theme: {
     direction: 'ltr',
     textFont: 'Georgia, serif',

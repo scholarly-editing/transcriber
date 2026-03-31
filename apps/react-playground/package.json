@@ -11,18 +11,21 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@muhaqqiq-editor/react": "workspace:*",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "@muhaqqiq-editor/react": "workspace:*"
+    "react-dom": "^19.2.0"
   },
   "devDependencies": {
+    "@storybook/react-vite": "^10.2.7",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
+    "@uiw/react-json-view": "2.0.0-alpha.41",
     "@vitejs/plugin-react": "^5.1.1",
+    "storybook": "^10.2.7",
     "typescript": "~5.9.3",
     "vite": "^7.2.4",
-    "storybook": "^10.2.7",
-    "@storybook/react-vite": "^10.2.7"
+    "vite-plugin-top-level-await": "^1.6.0",
+    "vite-plugin-wasm": "^3.6.0"
   }
 }

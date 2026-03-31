@@ -18,6 +18,7 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -48,9 +49,11 @@ h1 {
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.vanilla:hover {
   filter: drop-shadow(0 0 2em #3178c6aa);
 }
@@ -74,9 +77,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -87,10 +92,169 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }
+}
+
+/* ---------------------------------------------------------------------------
+ * Muhaqqiq Editor — Token Highlighting
+ *
+ * CSS custom properties prefixed with --muhaqqiq- allow consumers to override
+ * token colors without modifying these rules directly.
+ * ------------------------------------------------------------------------- */
+
+:root {
+  /* Word states */
+  --muhaqqiq-token-sound-color: inherit;
+  --muhaqqiq-token-emendation-color: #0969da;
+  --muhaqqiq-token-emended-color: #0969da;
+  --muhaqqiq-token-corrupt-color: #cf222e;
+  --muhaqqiq-token-corrupt-decoration: line-through;
+  --muhaqqiq-token-unclear-opacity: 0.55;
+  --muhaqqiq-token-unintelligible-opacity: 0.4;
+  --muhaqqiq-token-error-color: #bf3989;
+  --muhaqqiq-token-sic-color: #bf3989;
+  --muhaqqiq-token-title-color: #8250df;
+
+  /* Edition symbols (prefix / suffix / bracket characters) */
+  --muhaqqiq-edition-symbol-color: #0550ae;
+  --muhaqqiq-edition-symbol-opacity: 0.85;
+
+  /* Invalid / error tokens */
+  --muhaqqiq-highlight-invalid-bg: rgba(255, 0, 0, 0.15);
+  --muhaqqiq-highlight-invalid-decoration: wavy underline #cf222e;
+
+  /* Bracket / derived word states */
+  --muhaqqiq-token-editorial-color: #8250df;
+  --muhaqqiq-token-conjectural-color: #bf8700;
+  --muhaqqiq-token-gloss-color: #1a7f37;
+  --muhaqqiq-token-supplied-color: #0969da;
+  --muhaqqiq-token-abbreviated-color: #953800;
+  --muhaqqiq-token-lacuna-color: #953800;
+
+  /* Tag tokens */
+  --muhaqqiq-token-tag-color: #8250df;
+  --muhaqqiq-token-tag-lacuna-color: #953800;
+
+  /* Structural tokens */
+  --muhaqqiq-token-pagebreak-color: #0550ae;
+  --muhaqqiq-token-pagebreak-bg: rgba(5, 80, 174, 0.08);
+  --muhaqqiq-token-block-color: #1a7f37;
+  --muhaqqiq-token-block-bg: rgba(26, 127, 55, 0.08);
+  --muhaqqiq-token-in-block-bg: rgba(26, 127, 55, 0.05);
+}
+
+/* Word state classes */
+
+.token-sound {
+  color: var(--muhaqqiq-token-sound-color);
+}
+
+.token-emendation {
+  color: var(--muhaqqiq-token-emendation-color);
+}
+
+.token-emended {
+  color: var(--muhaqqiq-token-emended-color);
+}
+
+.token-corrupt {
+  color: var(--muhaqqiq-token-corrupt-color);
+  text-decoration: var(--muhaqqiq-token-corrupt-decoration);
+}
+
+.token-unclear {
+  opacity: var(--muhaqqiq-token-unclear-opacity);
+}
+
+.token-unintelligible {
+  opacity: var(--muhaqqiq-token-unintelligible-opacity);
+}
+
+.token-error {
+  color: var(--muhaqqiq-token-error-color);
+}
+
+.token-sic {
+  color: var(--muhaqqiq-token-sic-color);
+}
+
+.token-title {
+  color: var(--muhaqqiq-token-title-color);
+  font-weight: 600;
+}
+
+/* Edition symbols — prefix, suffix, bracket characters */
+
+.edition-symbol {
+  color: var(--muhaqqiq-edition-symbol-color);
+  opacity: var(--muhaqqiq-edition-symbol-opacity);
+  font-weight: 700;
+}
+
+/* Bracket / derived word states */
+
+.token-editorial {
+  color: var(--muhaqqiq-token-editorial-color);
+}
+
+.token-conjectural {
+  color: var(--muhaqqiq-token-conjectural-color);
+}
+
+.token-gloss {
+  color: var(--muhaqqiq-token-gloss-color);
+}
+
+.token-supplied {
+  color: var(--muhaqqiq-token-supplied-color);
+  font-style: italic;
+}
+
+.token-abbreviated {
+  color: var(--muhaqqiq-token-abbreviated-color);
+}
+
+.token-lacuna {
+  color: var(--muhaqqiq-token-lacuna-color);
+}
+
+/* Invalid characters / error tokens */
+
+.highlight-invalid {
+  background: var(--muhaqqiq-highlight-invalid-bg);
+  text-decoration: var(--muhaqqiq-highlight-invalid-decoration);
+}
+
+/* Tag tokens */
+
+.token-tag {
+  color: var(--muhaqqiq-token-tag-color);
+  font-style: italic;
+}
+
+.token-tag-lacuna {
+  color: var(--muhaqqiq-token-tag-lacuna-color);
+}
+
+/* Structural tokens */
+
+.token-pagebreak {
+  color: var(--muhaqqiq-token-pagebreak-color);
+  background: var(--muhaqqiq-token-pagebreak-bg);
+}
+
+.token-block {
+  color: var(--muhaqqiq-token-block-color);
+  background: var(--muhaqqiq-token-block-bg);
+}
+
+.token-in-block {
+  background: var(--muhaqqiq-token-in-block-bg);
 }

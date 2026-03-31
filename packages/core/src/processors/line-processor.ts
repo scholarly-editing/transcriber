@@ -1,6 +1,7 @@
 import { v4 } from 'uuid';
 import type { IEditorConfig } from '../core/models/config.model.ts';
 import type { IDocument, IElement, ILine } from '../core/models/document.model.ts';
+import type { ITagToken, ITokenizerError, ParserService } from '../parser/index.ts';
 import { parseLineTokens } from '../utils/helpers.ts';
 
 /**
@@ -11,8 +12,10 @@ import { parseLineTokens } from '../utils/helpers.ts';
  */
 export function processLine(
   lineText: string,
-  config: IEditorConfig
+  config: IEditorConfig,
+  preTokenized?: { tokens: string[]; states: string[] }
 ): { tokens: string[]; states: string[] } {
+  if (preTokenized) return preTokenized;
   const normalized = lineText.trim().replace(/\s{2,}/g, ' ');
   return parseLineTokens(normalized, config);
 }
@@ -75,6 +78,172 @@ function distributeLineCounts(originalCounts: number[], totalNew: number): numbe
   counts[counts.length - 1] += totalNew - allocated;
 
   return counts;
+}
+
+/**
+ * Collects and merges word, tag, and error tokens for a single parser line,
+ * returning them sorted by token order.
+ */
+function collectLineItems(
+  parserLineNum: number,
+  lineTokens: Map<number, import('../parser/parser-types.ts').IWordToken[]>,
+  tagsByLine: Map<number, ITagToken[]>,
+  errorsByLine: Map<number, ITokenizerError[]>
+): { tokens: string[]; states: string[] } {
+  const items: { order: number; token: string; state: string }[] = [];
+
+  const words = lineTokens.get(parserLineNum);
+  if (words) {
+    for (const w of words) {
+      items.push({ order: w.token_order, token: w.word, state: w.state });
+    }
+  }
+
+  const lineTags = tagsByLine.get(parserLineNum);
+  if (lineTags) {
+    for (const t of lineTags) {
+      items.push({ order: t.token_order, token: t.tag, state: t.label });
+    }
+  }
+
+  const lineErrors = errorsByLine.get(parserLineNum);
+  if (lineErrors) {
+    for (const e of lineErrors) {
+      items.push({ order: e.order_in_line, token: e.token, state: 'error' });
+    }
+  }
+
+  items.sort((a, b) => a.order - b.order);
+
+  return {
+    tokens: items.map(i => i.token),
+    states: items.map(i => i.state),
+  };
+}
+
+/**
+ * Parses flat text into an array of ILine objects using the WASM parser.
+ *
+ * Calls the parser once with the full text, then groups the resulting
+ * tokens by line. Tag and Error tokens are merged into the correct
+ * positions using `token_order`. Reuses IDs from `existingLines`
+ * when the content at a given index is unchanged.
+ */
+export function textToLinesWithParser(
+  text: string,
+  _config: IEditorConfig,
+  parser: ParserService,
+  existingLines?: ILine[]
+): ILine[] {
+  const rawLines = text.split('\n');
+  const sorted = existingLines
+    ? existingLines.slice().sort((a, b) => a.order - b.order)
+    : undefined;
+
+  const { lineTokens, errors, tags } = parser.tokenizeByLine(text);
+
+  // Group tags by line_number
+  const tagsByLine = new Map<number, ITagToken[]>();
+  for (const tag of tags) {
+    let bucket = tagsByLine.get(tag.line_number);
+    if (!bucket) {
+      bucket = [];
+      tagsByLine.set(tag.line_number, bucket);
+    }
+    bucket.push(tag);
+  }
+
+  // Group errors by line
+  const errorsByLine = new Map<number, ITokenizerError[]>();
+  for (const err of errors) {
+    let bucket = errorsByLine.get(err.line);
+    if (!bucket) {
+      bucket = [];
+      errorsByLine.set(err.line, bucket);
+    }
+    bucket.push(err);
+  }
+
+  return rawLines.map((_raw, index) => {
+    // Parser uses 1-based line numbers
+    const { tokens, states } = collectLineItems(index + 1, lineTokens, tagsByLine, errorsByLine);
+
+    const existing = sorted?.[index];
+    if (existing && arraysEqual(tokens, existing.tokens) && arraysEqual(states, existing.states)) {
+      return { ...existing, order: index };
+    }
+
+    return {
+      id: v4(),
+      elementId: existing?.elementId ?? '',
+      order: index,
+      tokens,
+      states,
+    };
+  });
+}
+
+/**
+ * Updates an existing IDocument with new text content using the WASM parser.
+ *
+ * Mirrors `textToDocument` but delegates line-level tokenization to
+ * `textToLinesWithParser` instead of `textToLines`.
+ */
+export function textToDocumentWithParser(
+  text: string,
+  doc: IDocument,
+  config: IEditorConfig,
+  parser: ParserService
+): IDocument {
+  const elements = (doc.text ?? []).slice().sort((a, b) => a.order - b.order);
+
+  if (elements.length === 0) {
+    const lines = textToLinesWithParser(text, config, parser);
+    const elementId = v4();
+    const newElement: IElement = {
+      id: elementId,
+      order: 0,
+      position: 'main',
+      lines: lines.map(l => ({ ...l, elementId })),
+    };
+    return { ...doc, text: [newElement] };
+  }
+
+  if (elements.length === 1) {
+    const el = elements[0];
+    const lines = textToLinesWithParser(text, config, parser, el.lines);
+    return {
+      ...doc,
+      text: [
+        {
+          ...el,
+          lines: lines.map(l => ({ ...l, elementId: el.id })),
+        },
+      ],
+    };
+  }
+
+  // Multiple elements — distribute lines proportionally
+  const originalCounts = elements.map(el => el.lines.length);
+  const allLines = text.split('\n');
+  const distribution = distributeLineCounts(originalCounts, allLines.length);
+
+  let offset = 0;
+  const updatedElements: IElement[] = elements.map((el, i) => {
+    const count = distribution[i];
+    const slice = allLines.slice(offset, offset + count).join('\n');
+    offset += count;
+
+    const existingSorted = el.lines.slice().sort((a, b) => a.order - b.order);
+    const lines = textToLinesWithParser(slice, config, parser, existingSorted);
+
+    return {
+      ...el,
+      lines: lines.map(l => ({ ...l, elementId: el.id })),
+    };
+  });
+
+  return { ...doc, text: updatedElements };
 }
 
 /**

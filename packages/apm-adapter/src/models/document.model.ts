@@ -21,7 +21,7 @@ export interface TranscriptionDocument {
    * If replacing Quill, you might map this to a Prosemirror Node or a Slate Value,
    * but broadly it is a list of text segments + attributes.
    */
-  content: Array<TranscriptionBlock>;
+  content: TranscriptionBlock[];
 
   /** Editorial notes separate from text (optional, depending on architecture) */
   editorialNotes: Array<{
