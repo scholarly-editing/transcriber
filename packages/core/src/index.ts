@@ -39,6 +39,8 @@ export { createCleanupExtension } from './editor/extensions/cleanup-extension.ts
 export { createHighlightExtension } from './editor/extensions/highlight-extension.ts';
 export { createEditorKeymap } from './editor/extensions/keymap-extension.ts';
 export { createLintExtension, formatErrorMessage } from './editor/extensions/lint-extension.ts';
+export { insertSymbol, wrapWithBrackets } from './editor/extensions/symbol-actions.ts';
+export { createToolbarExtension } from './editor/extensions/toolbar-extension.ts';
 
 // Low-level editor mounting
 export type { MountEditorOptions, MountedEditor } from './editor/mount-editor.ts';

@@ -1,35 +1,7 @@
 import type { Extension } from '@codemirror/state';
-import { type EditorView, type KeyBinding, keymap } from '@codemirror/view';
+import { type KeyBinding, keymap } from '@codemirror/view';
 import type { IEditorConfig } from '../../core/models/config.model.ts';
-
-/**
- * Inserts a symbol at the current cursor position.
- * If text is selected and the symbol is a bracket pair, wraps the selection.
- */
-function insertSymbol(view: EditorView, symbol: string): boolean {
-  const { from, to } = view.state.selection.main;
-  view.dispatch({
-    changes: { from, to, insert: symbol },
-    selection: { anchor: from + symbol.length },
-  });
-  return true;
-}
-
-/**
- * Wraps the current selection with open/close bracket symbols.
- * If no text is selected, inserts both symbols and places cursor between them.
- */
-function wrapWithBrackets(view: EditorView, open: string, close: string): boolean {
-  const { from, to } = view.state.selection.main;
-  const selected = view.state.sliceDoc(from, to);
-  const wrapped = open + selected + close;
-
-  view.dispatch({
-    changes: { from, to, insert: wrapped },
-    selection: { anchor: from + open.length + selected.length },
-  });
-  return true;
-}
+import { insertSymbol, wrapWithBrackets } from './symbol-actions.ts';
 
 /**
  * Creates keybindings from the editor config. Assigns Ctrl+Shift+{N}

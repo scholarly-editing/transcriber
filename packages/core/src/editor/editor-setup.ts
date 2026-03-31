@@ -20,6 +20,7 @@ import { createCleanupExtension } from './extensions/cleanup-extension.ts';
 import { createHighlightExtension } from './extensions/highlight-extension.ts';
 import { createEditorKeymap } from './extensions/keymap-extension.ts';
 import { createLintExtension } from './extensions/lint-extension.ts';
+import { createToolbarExtension } from './extensions/toolbar-extension.ts';
 
 /**
  * A comprehensive set of extensions for CodeMirror including:
@@ -57,6 +58,10 @@ export function createConfiguredSetup(config: IEditorConfig): Extension {
 
   if (config.editingEnabled) {
     extensions.push(createEditorKeymap(config));
+  }
+
+  if (config.toolbarEnabled && config.editingEnabled) {
+    extensions.push(createToolbarExtension(config));
   }
 
   return extensions;

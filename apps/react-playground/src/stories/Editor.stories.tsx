@@ -140,6 +140,7 @@ const ConfigSwitchingExample: React.FC = () => {
   const [useArabic, setUseArabic] = useState(true);
   const [editingEnabled, setEditingEnabled] = useState(true);
   const [highlightingEnabled, setHighlightingEnabled] = useState(true);
+  const [toolbarEnabled, setToolbarEnabled] = useState(true);
   const [liveDoc, setLiveDoc] = useState<IDocument>(ARABIC_DOCUMENT);
 
   const baseConfig = useArabic ? ARABIC_CONFIG : LATIN_CONFIG;
@@ -147,6 +148,7 @@ const ConfigSwitchingExample: React.FC = () => {
     ...baseConfig,
     editingEnabled,
     highlightingEnabled,
+    toolbarEnabled,
   };
   const document: IDocument = useArabic ? ARABIC_DOCUMENT : LATIN_DOCUMENT;
 
@@ -181,6 +183,14 @@ const ConfigSwitchingExample: React.FC = () => {
           />{' '}
           Highlighting enabled
         </label>
+        <label>
+          <input
+            type="checkbox"
+            checked={toolbarEnabled}
+            onChange={e => setToolbarEnabled(e.target.checked)}
+          />{' '}
+          Toolbar
+        </label>
       </div>
       <MuhaqqiqEditor document={document} config={config} onChange={handleChange} />
       <DocumentJsonViewer value={liveDoc} />
@@ -194,6 +204,38 @@ const ConfigSwitchingExample: React.FC = () => {
  */
 export const ConfigSwitching: Story = {
   render: () => <ConfigSwitchingExample />,
+};
+
+// ---------------------------------------------------------------------------
+// Toolbar showcase story
+// ---------------------------------------------------------------------------
+
+const ToolbarShowcaseExample: React.FC = () => {
+  const [liveDoc, setLiveDoc] = useState<IDocument>(EDITION_SYMBOLS_DOC);
+
+  const handleChange = useCallback((updated: IDocument) => {
+    setLiveDoc(updated);
+  }, []);
+
+  return (
+    <div>
+      <p style={{ marginBottom: 8 }}>
+        Click inside the editor to see the edition-symbol toolbar. Click a button to insert, or
+        start typing to dismiss.
+      </p>
+      <MuhaqqiqEditor
+        document={EDITION_SYMBOLS_DOC}
+        config={LATIN_CONFIG}
+        onChange={handleChange}
+      />
+      <DocumentJsonViewer value={liveDoc} />
+    </div>
+  );
+};
+
+/** Showcase of the hovering edition-symbol toolbar with all symbol types. */
+export const ToolbarShowcase: Story = {
+  render: () => <ToolbarShowcaseExample />,
 };
 
 // ---------------------------------------------------------------------------

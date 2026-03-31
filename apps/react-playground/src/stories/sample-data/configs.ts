@@ -71,6 +71,7 @@ export const ARABIC_CONFIG: IEditorConfig = {
   },
   editingEnabled: true,
   highlightingEnabled: true,
+  toolbarEnabled: true,
 };
 
 /**
@@ -125,4 +126,5 @@ export const LATIN_CONFIG: IEditorConfig = {
   },
   editingEnabled: true,
   highlightingEnabled: true,
+  toolbarEnabled: true,
 };

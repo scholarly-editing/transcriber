@@ -81,4 +81,5 @@ export interface IEditorConfig {
   theme: IEditorTheme;
   editingEnabled: boolean;
   highlightingEnabled: boolean;
+  toolbarEnabled?: boolean;
 }
