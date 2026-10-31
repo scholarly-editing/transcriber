@@ -6,14 +6,14 @@ export { editorConfigToParserJson } from './config-adapter.ts';
 export type { ILineTokenizeResult } from './parser-service.ts';
 export { ParserService } from './parser-service.ts';
 export type {
-  IBlockToken,
-  IPageBreakToken,
-  IParserToken,
-  ITagToken,
-  ITextError,
-  ITokenizeResult,
-  ITokenizerError,
-  IWordInBlockToken,
-  IWordToken,
-  ParserMode,
+    IBlockToken,
+    IPageBreakToken,
+    IParserToken,
+    ITagToken,
+    ITextError,
+    ITokenizeResult,
+    ITokenizerError,
+    IWordInBlockToken,
+    IWordToken,
+    ParserMode,
 } from './parser-types.ts';

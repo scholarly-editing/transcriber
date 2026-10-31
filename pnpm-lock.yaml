@@ -100,6 +100,9 @@ importers:
       '@codemirror/view':
         specifier: ^6.36.8
         version: 6.39.12
+      '@scholarly-editing/parser':
+        specifier: ^0.1.0
+        version: 0.1.0
       lodash:
         specifier: ^4.17.21
         version: 4.17.23
@@ -748,6 +751,9 @@ packages:
 
   '@rushstack/ts-command-line@5.2.0':
     resolution: {integrity: sha512-lYxCX0nDdkDtCkVpvF0m25ymf66SaMWuppbD6b7MdkIzvGXKBXNIVZlwBH/C0YfkanrupnICWf2n4z3AKSfaHw==}
+
+  '@scholarly-editing/parser@0.1.0':
+    resolution: {integrity: sha512-vUs0X3BHIblHlt/DRFotdspBcMZ0GOVCMl7CzcCyhCHWXR+mWewMmXUgyjnH00GSdpLQGFcg+PvfC2Rh9P8UMQ==}
 
   '@storybook/builder-vite@10.2.7':
     resolution: {integrity: sha512-dh/Oqvwob12oYJoaUkMgXxCGFxR8B+Hb/nACttxSuAZ1InTtXIMBM9GDpBs8QjaT23X/yHJz3dPYyUBbsn/SNA==}
@@ -2294,6 +2300,8 @@ snapshots:
       string-argv: 0.3.2
     transitivePeerDependencies:
       - '@types/node'
+
+  '@scholarly-editing/parser@0.1.0': {}
 
   '@storybook/builder-vite@10.2.7(esbuild@0.27.3)(rollup@4.57.1)(storybook@10.2.7(@testing-library/dom@10.4.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(vite@7.3.1(@types/node@24.10.12))':
     dependencies:

@@ -1,7 +1,6 @@
 import { v4 } from 'uuid';
-import type { IEditorConfig } from '../core/models/config.model.ts';
-import type { IDocument, IElement, ILine } from '../core/models/document.model.ts';
-import type { ITagToken, ITokenizerError, ParserService } from '../parser/index.ts';
+import type { IDocument, IElement, ILine, IEditorConfig } from '../core/models';
+import type { ITagToken, ITokenizerError, ParserService } from '../parser';
 import { parseLineTokens } from '../utils/helpers.ts';
 
 /**

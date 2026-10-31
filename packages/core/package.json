@@ -26,6 +26,7 @@
     "@codemirror/search": "^6.5.11",
     "@codemirror/state": "^6.5.2",
     "@codemirror/view": "^6.36.8",
+    "@scholarly-editing/parser": "^0.1.0",
     "lodash": "^4.17.21",
     "uuid": "^11.1.0"
   },
