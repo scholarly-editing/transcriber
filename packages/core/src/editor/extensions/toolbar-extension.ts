@@ -20,7 +20,7 @@ function dismissToolbar(view: EditorView): void {
 
 function makeButton(label: string, title: string, onClick: () => void): HTMLButtonElement {
   const btn = document.createElement('button');
-  btn.className = 'muhaqqiq-toolbar-btn';
+  btn.className = 'sed-toolbar-btn';
   btn.textContent = label;
   btn.title = title;
   btn.addEventListener('mousedown', e => e.preventDefault());
@@ -30,7 +30,7 @@ function makeButton(label: string, title: string, onClick: () => void): HTMLButt
 
 function createToolbarView(view: EditorView, config: IEditorConfig): TooltipView {
   const container = document.createElement('div');
-  container.className = 'muhaqqiq-toolbar';
+  container.className = 'sed-toolbar';
 
   const groups: HTMLElement[][] = [];
 
@@ -67,7 +67,7 @@ function createToolbarView(view: EditorView, config: IEditorConfig): TooltipView
   for (let i = 0; i < groups.length; i++) {
     if (i > 0) {
       const divider = document.createElement('span');
-      divider.className = 'muhaqqiq-toolbar-divider';
+      divider.className = 'sed-toolbar-divider';
       container.appendChild(divider);
     }
     for (const btn of groups[i]) {
@@ -134,37 +134,37 @@ function createMouseupHandler(): Extension {
 // ---------------------------------------------------------------------------
 
 const toolbarBaseTheme = EditorView.baseTheme({
-  '.muhaqqiq-toolbar': {
+  '.sed-toolbar': {
     display: 'flex',
     gap: '2px',
     padding: '4px 6px',
-    background: 'var(--muhaqqiq-toolbar-bg, #fff)',
-    border: '1px solid var(--muhaqqiq-toolbar-border, #d0d7de)',
+    background: 'var(--sed-toolbar-bg, #fff)',
+    border: '1px solid var(--sed-toolbar-border, #d0d7de)',
     borderRadius: '6px',
     boxShadow: '0 2px 8px rgba(0,0,0,0.12)',
     zIndex: '10',
     flexWrap: 'wrap',
     maxWidth: '320px',
   },
-  '.muhaqqiq-toolbar-btn': {
+  '.sed-toolbar-btn': {
     padding: '2px 8px',
-    border: '1px solid var(--muhaqqiq-toolbar-btn-border, #d0d7de)',
+    border: '1px solid var(--sed-toolbar-btn-border, #d0d7de)',
     borderRadius: '4px',
-    background: 'var(--muhaqqiq-toolbar-btn-bg, #f6f8fa)',
-    color: 'var(--muhaqqiq-toolbar-btn-color, #24292f)',
+    background: 'var(--sed-toolbar-btn-bg, #f6f8fa)',
+    color: 'var(--sed-toolbar-btn-color, #24292f)',
     cursor: 'pointer',
     fontSize: '14px',
     fontWeight: '600',
     lineHeight: '1.4',
     '&:hover': {
-      background: 'var(--muhaqqiq-toolbar-btn-hover-bg, #e2e5e9)',
-      borderColor: 'var(--muhaqqiq-toolbar-btn-hover-border, #afb8c1)',
+      background: 'var(--sed-toolbar-btn-hover-bg, #e2e5e9)',
+      borderColor: 'var(--sed-toolbar-btn-hover-border, #afb8c1)',
     },
   },
-  '.muhaqqiq-toolbar-divider': {
+  '.sed-toolbar-divider': {
     width: '1px',
     alignSelf: 'stretch',
-    background: 'var(--muhaqqiq-toolbar-divider-color, #d0d7de)',
+    background: 'var(--sed-toolbar-divider-color, #d0d7de)',
     margin: '2px 4px',
   },
 });

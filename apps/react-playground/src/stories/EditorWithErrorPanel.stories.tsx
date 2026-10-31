@@ -4,7 +4,7 @@ import type {
   IEditorConfig,
   IParserDiagnostic,
 } from '@scholarly-editing/transcriber-react';
-import { MuhaqqiqErrorPanel } from '@scholarly-editing/transcriber-react';
+import { SedErrorPanel } from '@scholarly-editing/transcriber-react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import type React from 'react';
 import { useCallback, useEffect, useRef, useState } from 'react';
@@ -14,7 +14,7 @@ import { DocumentJsonViewer } from './DocumentJsonViewer.tsx';
  * Story: Editor With Error Panel
  *
  * Demonstrates:
- * - Integrating the editor with `MuhaqqiqErrorPanel` for live syntax and parser diagnostic reporting.
+ * - Integrating the editor with `SedErrorPanel` for live syntax and parser diagnostic reporting.
  * - Using `TranscriptionManager` to subscribe directly to diagnostics changes via `onDiagnosticsChange`.
  * - Clicking a diagnostic in the panel for navigation/inspection.
  *
@@ -170,9 +170,9 @@ const EditorWithErrorPanelPreview: React.FC = () => {
       </div>
 
       <div style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
-        <div ref={editorRef} className="muhaqqiq-editor" style={{ flex: 1, minWidth: 0 }} />
+        <div ref={editorRef} className="transcription-editor" style={{ flex: 1, minWidth: 0 }} />
         <div style={{ width: 340, flexShrink: 0 }}>
-          <MuhaqqiqErrorPanel
+          <SedErrorPanel
             diagnostics={diagnostics}
             onDiagnosticClick={handleDiagnosticClick}
             className=""

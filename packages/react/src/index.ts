@@ -9,7 +9,6 @@ export type {
   IEditorTheme,
   IElement,
   ILine,
-  IMuhaqqiqEditorApi,
   IPageConfig,
   IParserDiagnostic,
   IPrefixConfig,
@@ -17,8 +16,9 @@ export type {
   ITagConfig,
   IThemeOverride,
   IThemeSettings,
+  ITranscriptionEditorApi,
   IWordConfig,
 } from '@scholarly-editing/transcriber-core';
 export * from './Editor.tsx';
 export type { ErrorPanelProps } from './ErrorPanel.tsx';
-export { MuhaqqiqErrorPanel } from './ErrorPanel.tsx';
+export { SedErrorPanel } from './ErrorPanel.tsx';

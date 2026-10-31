@@ -23,7 +23,7 @@ export type {
   IElement,
   ILine,
 } from './core/models/document.model.ts';
-export type { IMuhaqqiqEditorApi } from './core/models/editor-api.model.ts';
+export type { ITranscriptionEditorApi } from './core/models/editor-api.model.ts';
 
 // Orchestrator
 export type { ITranscriptionManagerOptions } from './core/transcription-manager.ts';

@@ -1,4 +1,4 @@
-import { StyleModule } from '/home/mahmoud/WebstormProjects/muhaqqiq-editor/node_modules/.pnpm/style-mod@4.1.3/node_modules/style-mod/src/style-mod.js';
+import { StyleModule } from '/home/mahmoud/WebstormProjects/sed-editor/node_modules/.pnpm/style-mod@4.1.3/node_modules/style-mod/src/style-mod.js';
 
 function buildTheme(main, spec) {
   return new StyleModule(spec, {
@@ -16,8 +16,8 @@ function buildTheme(main, spec) {
 const prefix = 'test-scope';
 const themeStyles = {
   '.edition-symbol': {
-    color: 'var(--muhaqqiq-edition-symbol-color, #0550ae)',
-    opacity: 'var(--muhaqqiq-edition-symbol-opacity, 0.85)',
+    color: 'var(--sed-edition-symbol-color, #0550ae)',
+    opacity: 'var(--sed-edition-symbol-opacity, 0.85)',
     fontWeight: '700',
   },
   '&': {

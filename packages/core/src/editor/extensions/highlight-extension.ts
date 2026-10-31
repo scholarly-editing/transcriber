@@ -231,57 +231,57 @@ function addSymbolCharDecorations(
 const highlightBaseTheme = EditorView.baseTheme({
   /* Edition symbols — prefix, suffix, bracket characters */
   '.edition-symbol': {
-    color: 'var(--muhaqqiq-edition-symbol-color, #0550ae)',
-    opacity: 'var(--muhaqqiq-edition-symbol-opacity, 0.85)',
+    color: 'var(--sed-edition-symbol-color, #0550ae)',
+    opacity: 'var(--sed-edition-symbol-opacity, 0.85)',
     fontWeight: '700',
   },
 
   /* Word states */
-  '.token-sound': { color: 'var(--muhaqqiq-token-sound-color, inherit)' },
-  '.token-emendation': { color: 'var(--muhaqqiq-token-emendation-color, #0969da)' },
-  '.token-emended': { color: 'var(--muhaqqiq-token-emended-color, #0969da)' },
+  '.token-sound': { color: 'var(--sed-token-sound-color, inherit)' },
+  '.token-emendation': { color: 'var(--sed-token-emendation-color, #0969da)' },
+  '.token-emended': { color: 'var(--sed-token-emended-color, #0969da)' },
   '.token-corrupt': {
-    color: 'var(--muhaqqiq-token-corrupt-color, #cf222e)',
-    textDecoration: 'var(--muhaqqiq-token-corrupt-decoration, line-through)',
+    color: 'var(--sed-token-corrupt-color, #cf222e)',
+    textDecoration: 'var(--sed-token-corrupt-decoration, line-through)',
   },
-  '.token-unclear': { opacity: 'var(--muhaqqiq-token-unclear-opacity, 0.55)' },
-  '.token-unintelligible': { opacity: 'var(--muhaqqiq-token-unintelligible-opacity, 0.4)' },
-  '.token-error': { color: 'var(--muhaqqiq-token-error-color, #bf3989)' },
-  '.token-sic': { color: 'var(--muhaqqiq-token-sic-color, #bf3989)' },
-  '.token-title': { color: 'var(--muhaqqiq-token-title-color, #8250df)', fontWeight: '600' },
+  '.token-unclear': { opacity: 'var(--sed-token-unclear-opacity, 0.55)' },
+  '.token-unintelligible': { opacity: 'var(--sed-token-unintelligible-opacity, 0.4)' },
+  '.token-error': { color: 'var(--sed-token-error-color, #bf3989)' },
+  '.token-sic': { color: 'var(--sed-token-sic-color, #bf3989)' },
+  '.token-title': { color: 'var(--sed-token-title-color, #8250df)', fontWeight: '600' },
 
   /* Bracket / derived states */
-  '.token-editorial': { color: 'var(--muhaqqiq-token-editorial-color, #8250df)' },
-  '.token-conjectural': { color: 'var(--muhaqqiq-token-conjectural-color, #bf8700)' },
-  '.token-gloss': { color: 'var(--muhaqqiq-token-gloss-color, #1a7f37)' },
+  '.token-editorial': { color: 'var(--sed-token-editorial-color, #8250df)' },
+  '.token-conjectural': { color: 'var(--sed-token-conjectural-color, #bf8700)' },
+  '.token-gloss': { color: 'var(--sed-token-gloss-color, #1a7f37)' },
   '.token-supplied': {
-    color: 'var(--muhaqqiq-token-supplied-color, #0969da)',
+    color: 'var(--sed-token-supplied-color, #0969da)',
     fontStyle: 'italic',
   },
-  '.token-abbreviated': { color: 'var(--muhaqqiq-token-abbreviated-color, #953800)' },
-  '.token-lacuna': { color: 'var(--muhaqqiq-token-lacuna-color, #953800)' },
+  '.token-abbreviated': { color: 'var(--sed-token-abbreviated-color, #953800)' },
+  '.token-lacuna': { color: 'var(--sed-token-lacuna-color, #953800)' },
 
   /* Invalid / error tokens */
   '.highlight-invalid': {
-    background: 'var(--muhaqqiq-highlight-invalid-bg, rgba(255, 0, 0, 0.15))',
-    textDecoration: 'var(--muhaqqiq-highlight-invalid-decoration, wavy underline #cf222e)',
+    background: 'var(--sed-highlight-invalid-bg, rgba(255, 0, 0, 0.15))',
+    textDecoration: 'var(--sed-highlight-invalid-decoration, wavy underline #cf222e)',
   },
 
   /* Tag tokens */
-  '.token-tag': { color: 'var(--muhaqqiq-token-tag-color, #8250df)', fontStyle: 'italic' },
-  '.token-tag-lacuna': { color: 'var(--muhaqqiq-token-tag-lacuna-color, #953800)' },
+  '.token-tag': { color: 'var(--sed-token-tag-color, #8250df)', fontStyle: 'italic' },
+  '.token-tag-lacuna': { color: 'var(--sed-token-tag-lacuna-color, #953800)' },
 
   /* Structural tokens */
   '.token-pagebreak': {
-    color: 'var(--muhaqqiq-token-pagebreak-color, #0550ae)',
-    background: 'var(--muhaqqiq-token-pagebreak-bg, rgba(5, 80, 174, 0.08))',
+    color: 'var(--sed-token-pagebreak-color, #0550ae)',
+    background: 'var(--sed-token-pagebreak-bg, rgba(5, 80, 174, 0.08))',
   },
   '.token-block': {
-    color: 'var(--muhaqqiq-token-block-color, #1a7f37)',
-    background: 'var(--muhaqqiq-token-block-bg, rgba(26, 127, 55, 0.08))',
+    color: 'var(--sed-token-block-color, #1a7f37)',
+    background: 'var(--sed-token-block-bg, rgba(26, 127, 55, 0.08))',
   },
   '.token-in-block': {
-    background: 'var(--muhaqqiq-token-in-block-bg, rgba(26, 127, 55, 0.05))',
+    background: 'var(--sed-token-in-block-bg, rgba(26, 127, 55, 0.05))',
   },
 });
 

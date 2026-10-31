@@ -8,7 +8,7 @@
   </head>
   <body>
     <div id="app">
-      <h1>Muhaqqiq Core - Vanilla Example</h1>
+      <h1>Sed Core - Vanilla Example</h1>
       <div id="editor-container" style="border: 1px solid #ccc; min-height: 400px; margin: 20px 0;"></div>
       <div style="margin: 20px 0;">
         <button id="get-content">Get Content</button>
@@ -27,7 +27,7 @@
       // Mount the editor
       const editor = mountEditor({
         parent: container,
-        doc: 'Welcome to Muhaqqiq Editor!\n\nThis is a vanilla JavaScript example using CodeMirror 6.\n\nTry editing this text...',
+        doc: 'Welcome to TranscriptionEditor!\n\nThis is a vanilla JavaScript example using CodeMirror 6.\n\nTry editing this text...',
         setup: 'basic',
         onDocChange: (doc) => {
           output.textContent = `Content changed (${new Date().toLocaleTimeString()}):\n${doc}`;

@@ -103,158 +103,158 @@ button:focus-visible {
 }
 
 /* ---------------------------------------------------------------------------
- * Muhaqqiq Editor — Token Highlighting
+ * Transcription Editor — Token Highlighting
  *
- * CSS custom properties prefixed with --muhaqqiq- allow consumers to override
+ * CSS custom properties prefixed with --sed- allow consumers to override
  * token colors without modifying these rules directly.
  * ------------------------------------------------------------------------- */
 
 :root {
   /* Word states */
-  --muhaqqiq-token-sound-color: inherit;
-  --muhaqqiq-token-emendation-color: #0969da;
-  --muhaqqiq-token-emended-color: #0969da;
-  --muhaqqiq-token-corrupt-color: #cf222e;
-  --muhaqqiq-token-corrupt-decoration: line-through;
-  --muhaqqiq-token-unclear-opacity: 0.55;
-  --muhaqqiq-token-unintelligible-opacity: 0.4;
-  --muhaqqiq-token-error-color: #bf3989;
-  --muhaqqiq-token-sic-color: #bf3989;
-  --muhaqqiq-token-title-color: #8250df;
+  --sed-token-sound-color: inherit;
+  --sed-token-emendation-color: #0969da;
+  --sed-token-emended-color: #0969da;
+  --sed-token-corrupt-color: #cf222e;
+  --sed-token-corrupt-decoration: line-through;
+  --sed-token-unclear-opacity: 0.55;
+  --sed-token-unintelligible-opacity: 0.4;
+  --sed-token-error-color: #bf3989;
+  --sed-token-sic-color: #bf3989;
+  --sed-token-title-color: #8250df;
 
   /* Edition symbols (prefix / suffix / bracket characters) */
-  --muhaqqiq-edition-symbol-color: #0550ae;
-  --muhaqqiq-edition-symbol-opacity: 0.85;
+  --sed-edition-symbol-color: #0550ae;
+  --sed-edition-symbol-opacity: 0.85;
 
   /* Invalid / error tokens */
-  --muhaqqiq-highlight-invalid-bg: rgba(255, 0, 0, 0.15);
-  --muhaqqiq-highlight-invalid-decoration: wavy underline #cf222e;
+  --sed-highlight-invalid-bg: rgba(255, 0, 0, 0.15);
+  --sed-highlight-invalid-decoration: wavy underline #cf222e;
 
   /* Bracket / derived word states */
-  --muhaqqiq-token-editorial-color: #8250df;
-  --muhaqqiq-token-conjectural-color: #bf8700;
-  --muhaqqiq-token-gloss-color: #1a7f37;
-  --muhaqqiq-token-supplied-color: #0969da;
-  --muhaqqiq-token-abbreviated-color: #953800;
-  --muhaqqiq-token-lacuna-color: #953800;
+  --sed-token-editorial-color: #8250df;
+  --sed-token-conjectural-color: #bf8700;
+  --sed-token-gloss-color: #1a7f37;
+  --sed-token-supplied-color: #0969da;
+  --sed-token-abbreviated-color: #953800;
+  --sed-token-lacuna-color: #953800;
 
   /* Tag tokens */
-  --muhaqqiq-token-tag-color: #8250df;
-  --muhaqqiq-token-tag-lacuna-color: #953800;
+  --sed-token-tag-color: #8250df;
+  --sed-token-tag-lacuna-color: #953800;
 
   /* Structural tokens */
-  --muhaqqiq-token-pagebreak-color: #0550ae;
-  --muhaqqiq-token-pagebreak-bg: rgba(5, 80, 174, 0.08);
-  --muhaqqiq-token-block-color: #1a7f37;
-  --muhaqqiq-token-block-bg: rgba(26, 127, 55, 0.08);
-  --muhaqqiq-token-in-block-bg: rgba(26, 127, 55, 0.05);
+  --sed-token-pagebreak-color: #0550ae;
+  --sed-token-pagebreak-bg: rgba(5, 80, 174, 0.08);
+  --sed-token-block-color: #1a7f37;
+  --sed-token-block-bg: rgba(26, 127, 55, 0.08);
+  --sed-token-in-block-bg: rgba(26, 127, 55, 0.05);
 }
 
 /* Word state classes */
 
 .token-sound {
-  color: var(--muhaqqiq-token-sound-color);
+  color: var(--sed-token-sound-color);
 }
 
 .token-emendation {
-  color: var(--muhaqqiq-token-emendation-color);
+  color: var(--sed-token-emendation-color);
 }
 
 .token-emended {
-  color: var(--muhaqqiq-token-emended-color);
+  color: var(--sed-token-emended-color);
 }
 
 .token-corrupt {
-  color: var(--muhaqqiq-token-corrupt-color);
-  text-decoration: var(--muhaqqiq-token-corrupt-decoration);
+  color: var(--sed-token-corrupt-color);
+  text-decoration: var(--sed-token-corrupt-decoration);
 }
 
 .token-unclear {
-  opacity: var(--muhaqqiq-token-unclear-opacity);
+  opacity: var(--sed-token-unclear-opacity);
 }
 
 .token-unintelligible {
-  opacity: var(--muhaqqiq-token-unintelligible-opacity);
+  opacity: var(--sed-token-unintelligible-opacity);
 }
 
 .token-error {
-  color: var(--muhaqqiq-token-error-color);
+  color: var(--sed-token-error-color);
 }
 
 .token-sic {
-  color: var(--muhaqqiq-token-sic-color);
+  color: var(--sed-token-sic-color);
 }
 
 .token-title {
-  color: var(--muhaqqiq-token-title-color);
+  color: var(--sed-token-title-color);
   font-weight: 600;
 }
 
 /* Edition symbols — prefix, suffix, bracket characters */
 
 .edition-symbol {
-  color: var(--muhaqqiq-edition-symbol-color);
-  opacity: var(--muhaqqiq-edition-symbol-opacity);
+  color: var(--sed-edition-symbol-color);
+  opacity: var(--sed-edition-symbol-opacity);
   font-weight: 700;
 }
 
 /* Bracket / derived word states */
 
 .token-editorial {
-  color: var(--muhaqqiq-token-editorial-color);
+  color: var(--sed-token-editorial-color);
 }
 
 .token-conjectural {
-  color: var(--muhaqqiq-token-conjectural-color);
+  color: var(--sed-token-conjectural-color);
 }
 
 .token-gloss {
-  color: var(--muhaqqiq-token-gloss-color);
+  color: var(--sed-token-gloss-color);
 }
 
 .token-supplied {
-  color: var(--muhaqqiq-token-supplied-color);
+  color: var(--sed-token-supplied-color);
   font-style: italic;
 }
 
 .token-abbreviated {
-  color: var(--muhaqqiq-token-abbreviated-color);
+  color: var(--sed-token-abbreviated-color);
 }
 
 .token-lacuna {
-  color: var(--muhaqqiq-token-lacuna-color);
+  color: var(--sed-token-lacuna-color);
 }
 
 /* Invalid characters / error tokens */
 
 .highlight-invalid {
-  background: var(--muhaqqiq-highlight-invalid-bg);
-  text-decoration: var(--muhaqqiq-highlight-invalid-decoration);
+  background: var(--sed-highlight-invalid-bg);
+  text-decoration: var(--sed-highlight-invalid-decoration);
 }
 
 /* Tag tokens */
 
 .token-tag {
-  color: var(--muhaqqiq-token-tag-color);
+  color: var(--sed-token-tag-color);
   font-style: italic;
 }
 
 .token-tag-lacuna {
-  color: var(--muhaqqiq-token-tag-lacuna-color);
+  color: var(--sed-token-tag-lacuna-color);
 }
 
 /* Structural tokens */
 
 .token-pagebreak {
-  color: var(--muhaqqiq-token-pagebreak-color);
-  background: var(--muhaqqiq-token-pagebreak-bg);
+  color: var(--sed-token-pagebreak-color);
+  background: var(--sed-token-pagebreak-bg);
 }
 
 .token-block {
-  color: var(--muhaqqiq-token-block-color);
-  background: var(--muhaqqiq-token-block-bg);
+  color: var(--sed-token-block-color);
+  background: var(--sed-token-block-bg);
 }
 
 .token-in-block {
-  background: var(--muhaqqiq-token-in-block-bg);
+  background: var(--sed-token-in-block-bg);
 }

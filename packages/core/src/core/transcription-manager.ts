@@ -3,7 +3,14 @@ import { EditorView } from '@codemirror/view';
 import { createConfiguredSetup } from '../editor/editor-setup.ts';
 import { createEditorTheme } from '../editor/editor-theme.ts';
 import { TranscriptionStateManager } from '../state/transcription-state.ts';
-import type { IEditorConfig, IEditorTheme, IThemeSettings, IParserDiagnostic, IDocument, IMuhaqqiqEditorApi } from './models';
+import type {
+  IDocument,
+  IEditorConfig,
+  IEditorTheme,
+  IParserDiagnostic,
+  IThemeSettings,
+  ITranscriptionEditorApi,
+} from './models';
 
 export interface ITranscriptionManagerOptions {
   document: IDocument;
@@ -34,7 +41,7 @@ function buildThemeExtension(config: IEditorConfig): Extension {
  * bidirectional IDocument ↔ flat-text pipeline, and a CodeMirror 6
  * editor view. Consumers use this as the single high-level entry point.
  */
-export class TranscriptionManager implements IMuhaqqiqEditorApi {
+export class TranscriptionManager implements ITranscriptionEditorApi {
   initialData: IDocument;
   initialConfig: IEditorConfig;
 
@@ -126,7 +133,7 @@ export class TranscriptionManager implements IMuhaqqiqEditorApi {
             this.stateManager.updateFromEditor(text);
           }
         } catch (err) {
-          console.error('[MuhaqqiqEditor] update listener error:', err);
+          console.error('[TranscriptionEditor] update listener error:', err);
         }
       }),
     ];

@@ -83,7 +83,7 @@ export function createCleanupExtension(config: IEditorConfig): Extension {
       if (!needsFilter) return tr;
       return { changes, sequential: true };
     } catch (err) {
-      console.error('[MuhaqqiqEditor] cleanup filter error:', err);
+      console.error('[TranscriptionEditor] cleanup filter error:', err);
       return tr;
     }
   });

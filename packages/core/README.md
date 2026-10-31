@@ -184,7 +184,7 @@ flat text → textToDocument()  → IDocument (updated tokens/states)
 
 ### Models & Types
 
-`IDocument`, `IElement`, `ILine`, `IDivider`, `IEditorConfig`, `IWordConfig`, `IPrefixConfig`, `ISuffixConfig`, `IBracketsConfig`, `IDividerConfig`, `IThemeSettings`, `IThemeOverride`, `IEditorTheme`, `IMuhaqqiqEditorApi`, `ITranscriptionManagerOptions`, `MountEditorOptions`, `MountedEditor`, `Statistics`, `IStateListener`, `ITranscriptionState`
+`IDocument`, `IElement`, `ILine`, `IDivider`, `IEditorConfig`, `IWordConfig`, `IPrefixConfig`, `ISuffixConfig`, `IBracketsConfig`, `IDividerConfig`, `IThemeSettings`, `IThemeOverride`, `IEditorTheme`, `ITranscriptionEditorApi`, `ITranscriptionManagerOptions`, `MountEditorOptions`, `MountedEditor`, `Statistics`, `IStateListener`, `ITranscriptionState`
 
 ### Classes
 

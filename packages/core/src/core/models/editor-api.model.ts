@@ -1,7 +1,7 @@
 import type { IEditorConfig } from './config.model.ts';
 import type { IDocument } from './document.model.ts';
 
-export interface IMuhaqqiqEditorApi {
+export interface ITranscriptionEditorApi {
   initialData: IDocument;
   initialConfig: IEditorConfig;
 

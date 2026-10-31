@@ -71,7 +71,7 @@ export function createLintExtension(config: IEditorConfig): Extension {
           to: errorToken.span[1],
           severity: 'error',
           message: formatErrorMessage(errorToken.error),
-          source: 'muhaqqiq-parser',
+          source: 'sed-parser',
         });
       }
     }

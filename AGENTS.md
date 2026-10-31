@@ -1,8 +1,8 @@
-# AGENTS.md - Coding Guidelines for Muhaqqiq Editor
+# AGENTS.md - Coding Guidelines for Transcription Editor
 
 ## Repository Overview
 
-Monorepo for Muhaqqiq Editor - a text editor project with TypeScript/React, using pnpm workspaces and Vite.
+Monorepo for Transcription Editor - a text editor project with TypeScript/React, using pnpm workspaces and Vite.
 
 **Structure:**
 - `packages/core` - Framework-agnostic editor core with CodeMirror 6
