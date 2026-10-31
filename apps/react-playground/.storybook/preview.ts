@@ -8,6 +8,21 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    options: {
+      storySort: {
+        order: [
+          'EmptyEditor',
+          'SimpleText',
+          'ArabicDocument',
+          'LatinDocument',
+          'ReadOnly',
+          'EditionSymbols',
+          'ConfigSwitching',
+          'ToolbarShowcase',
+          'EditorWithErrorPanel',
+        ],
+      },
+    },
   },
 };
 

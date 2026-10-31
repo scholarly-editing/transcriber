@@ -2,8 +2,13 @@ import JsonView from '@uiw/react-json-view';
 import { vscodeTheme } from '@uiw/react-json-view/vscode';
 import type React from 'react';
 
-interface DocumentJsonViewerProps {
+/**
+ * Props for the DocumentJsonViewer component.
+ */
+export interface IDocumentJsonViewerProps {
+  /** The object/document state to display as an interactive JSON tree. */
   value: object;
+  /** Optional title shown in the viewer header bar. */
   title?: string;
 }
 
@@ -30,9 +35,12 @@ const viewerStyle: React.CSSProperties = {
   padding: 8,
 };
 
-export const DocumentJsonViewer: React.FC<DocumentJsonViewerProps> = ({
+/**
+ * Renders an expandable JSON viewer for inspection of live document/editor state.
+ */
+export const DocumentJsonViewer: React.FC<IDocumentJsonViewerProps> = ({
   value,
-  title = 'Parsed Document',
+  title = 'Parsed Document (Live JSON)',
 }) => (
   <div style={containerStyle}>
     <div style={headerStyle}>{title}</div>
