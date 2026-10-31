@@ -1,5 +1,4 @@
-import type { IBracketsConfig, IEditorConfig } from '../core/models/config.model.ts';
-import type { ILine } from '../core/models/document.model.ts';
+import type { IBracketsConfig, IEditorConfig, ILine } from '../core/models';
 
 const DEFAULT_STATE = 'sound';
 

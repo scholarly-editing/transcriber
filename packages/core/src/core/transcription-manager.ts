@@ -3,10 +3,7 @@ import { EditorView } from '@codemirror/view';
 import { createConfiguredSetup } from '../editor/editor-setup.ts';
 import { createEditorTheme } from '../editor/editor-theme.ts';
 import { TranscriptionStateManager } from '../state/transcription-state.ts';
-import type { IEditorConfig, IEditorTheme, IThemeSettings } from './models/config.model.ts';
-import type { IParserDiagnostic } from './models/diagnostic.model.ts';
-import type { IDocument } from './models/document.model.ts';
-import type { IMuhaqqiqEditorApi } from './models/editor-api.model.ts';
+import type { IEditorConfig, IEditorTheme, IThemeSettings, IParserDiagnostic, IDocument, IMuhaqqiqEditorApi } from './models';
 
 export interface ITranscriptionManagerOptions {
   document: IDocument;
