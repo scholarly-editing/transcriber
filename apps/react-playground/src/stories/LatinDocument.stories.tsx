@@ -1,5 +1,5 @@
 import type { IDocument, IEditorConfig } from '@scholarly-editing/transcriber-react';
-import { MuhaqqiqEditor } from '@scholarly-editing/transcriber-react';
+import { TranscriptionEditor } from '@scholarly-editing/transcriber-react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import type React from 'react';
 import { useCallback, useState } from 'react';
@@ -20,12 +20,12 @@ import { DocumentJsonViewer } from './DocumentJsonViewer.tsx';
  */
 
 const meta = {
-  title: 'MuhaqqiqEditor',
-  component: MuhaqqiqEditor,
+  title: 'TranscriptionEditor',
+  component: TranscriptionEditor,
   parameters: {
     layout: 'padded',
   },
-} satisfies Meta<typeof MuhaqqiqEditor>;
+} satisfies Meta<typeof TranscriptionEditor>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -149,7 +149,7 @@ const LatinDocumentPreview: React.FC = () => {
 
   return (
     <div>
-      <MuhaqqiqEditor document={LATIN_DOCUMENT} config={LATIN_CONFIG} onChange={handleChange} />
+      <TranscriptionEditor document={LATIN_DOCUMENT} config={LATIN_CONFIG} onChange={handleChange} />
       <DocumentJsonViewer value={liveDoc} title="Live Parsed Document (JSON)" />
     </div>
   );

@@ -1,5 +1,5 @@
 import type { IDocument, IEditorConfig } from '@scholarly-editing/transcriber-react';
-import { MuhaqqiqEditor } from '@scholarly-editing/transcriber-react';
+import { TranscriptionEditor } from '@scholarly-editing/transcriber-react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import type React from 'react';
 import { DocumentJsonViewer } from './DocumentJsonViewer.tsx';
@@ -18,12 +18,12 @@ import { DocumentJsonViewer } from './DocumentJsonViewer.tsx';
  */
 
 const meta = {
-  title: 'MuhaqqiqEditor',
-  component: MuhaqqiqEditor,
+  title: 'TranscriptionEditor',
+  component: TranscriptionEditor,
   parameters: {
     layout: 'padded',
   },
-} satisfies Meta<typeof MuhaqqiqEditor>;
+} satisfies Meta<typeof TranscriptionEditor>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -136,7 +136,7 @@ const ReadOnlyPreview: React.FC = () => {
         <strong>Read-Only Mode:</strong> <code>editingEnabled</code> is set to <code>false</code>.
         The document is rendered and selectable, but typing and deleting are disabled.
       </div>
-      <MuhaqqiqEditor document={READ_ONLY_DOCUMENT} config={READ_ONLY_CONFIG} />
+      <TranscriptionEditor document={READ_ONLY_DOCUMENT} config={READ_ONLY_CONFIG} />
       <DocumentJsonViewer value={READ_ONLY_DOCUMENT} title="Immutable Document State (JSON)" />
     </div>
   );

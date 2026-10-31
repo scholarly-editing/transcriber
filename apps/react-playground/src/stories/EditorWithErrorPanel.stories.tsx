@@ -25,7 +25,7 @@ import { DocumentJsonViewer } from './DocumentJsonViewer.tsx';
  */
 
 const meta = {
-  title: 'MuhaqqiqEditor',
+  title: 'TranscriptionEditor',
   parameters: {
     layout: 'padded',
   },

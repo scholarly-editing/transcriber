@@ -1,4 +1,4 @@
-import { MuhaqqiqEditor } from '@scholarly-editing/transcriber-react';
+import { TranscriptionEditor } from '@scholarly-editing/transcriber-react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import type React from 'react';
 import { useState } from 'react';
@@ -16,12 +16,12 @@ import { DocumentJsonViewer } from './DocumentJsonViewer.tsx';
  */
 
 const meta = {
-  title: 'MuhaqqiqEditor',
-  component: MuhaqqiqEditor,
+  title: 'TranscriptionEditor',
+  component: TranscriptionEditor,
   parameters: {
     layout: 'padded',
   },
-} satisfies Meta<typeof MuhaqqiqEditor>;
+} satisfies Meta<typeof TranscriptionEditor>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -41,7 +41,7 @@ const EmptyEditorPreview: React.FC = () => {
 
   return (
     <div>
-      <MuhaqqiqEditor content={content} onChange={setContent} />
+      <TranscriptionEditor content={content} onChange={setContent} />
       <DocumentJsonViewer value={{ content }} title="Live String State" />
     </div>
   );

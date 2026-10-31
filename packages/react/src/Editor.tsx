@@ -26,7 +26,7 @@ function isDocumentMode(props: EditorProps): props is DocumentModeProps {
   return props.document !== undefined && props.config !== undefined;
 }
 
-export const MuhaqqiqEditor: React.FC<EditorProps> = props => {
+export const TranscriptionEditor: React.FC<EditorProps> = props => {
   const editorRef = useRef<HTMLDivElement>(null);
   const documentMode = isDocumentMode(props);
 
@@ -120,5 +120,5 @@ export const MuhaqqiqEditor: React.FC<EditorProps> = props => {
     manager.setConfig(props.config);
   }, [documentMode, props.config]);
 
-  return <div ref={editorRef} className="muhaqqiq-editor" />;
+  return <div ref={editorRef} className="transcription-editor" />;
 };
