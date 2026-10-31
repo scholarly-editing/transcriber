@@ -1,16 +1,16 @@
 {
-  "name": "@muhaqqiq-editor/apm-adapter",
+  "name": "@scholarly-editing/transcriber-apm-adapter",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "main": "./dist/muhaqqiq-apm-adapter.umd.cjs",
-  "module": "./dist/muhaqqiq-apm-adapter.js",
+  "main": "./dist/transcriber-apm-adapter.umd.cjs",
+  "module": "./dist/transcriber-apm-adapter.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/muhaqqiq-apm-adapter.js",
-      "require": "./dist/muhaqqiq-apm-adapter.umd.cjs"
+      "import": "./dist/transcriber-apm-adapter.js",
+      "require": "./dist/transcriber-apm-adapter.umd.cjs"
     }
   },
   "scripts": {
@@ -25,6 +25,6 @@
     "vite-plugin-dts": "^4.5.4"
   },
   "peerDependencies": {
-    "@muhaqqiq-editor/core": "workspace:*"
+    "@scholarly-editing/transcriber-core": "workspace:*"
   }
 }

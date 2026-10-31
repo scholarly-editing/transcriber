@@ -9,8 +9,8 @@ export default defineConfig({
   plugins: [wasm(), topLevelAwait(), react()],
   resolve: {
     alias: {
-      '@muhaqqiq-editor/core': resolve(__dirname, '../../packages/core/src/index.ts'),
-      '@muhaqqiq-editor/react': resolve(__dirname, '../../packages/react/src/index.ts'),
+      '@scholarly-editing/transcriber-core': resolve(__dirname, '../../packages/core/src/index.ts'),
+      '@scholarly-editing/transcriber-react': resolve(__dirname, '../../packages/react/src/index.ts'),
     },
   },
 });

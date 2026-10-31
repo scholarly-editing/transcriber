@@ -1,11 +1,11 @@
-import { TranscriptionManager } from '@muhaqqiq-editor/core';
+import { TranscriptionManager } from '@scholarly-editing/transcriber-core';
 import {
   type IDocument,
   type IEditorConfig,
   type IParserDiagnostic,
   MuhaqqiqEditor,
   MuhaqqiqErrorPanel,
-} from '@muhaqqiq-editor/react';
+} from '@scholarly-editing/transcriber-react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import type React from 'react';
 import { useCallback, useEffect, useRef, useState } from 'react';

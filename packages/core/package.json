@@ -1,5 +1,5 @@
 {
-  "name": "@muhaqqiq-editor/core",
+  "name": "@scholarly-editing/transcriber-core",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -30,14 +30,14 @@
     "lodash": "^4.17.21",
     "uuid": "^11.1.0"
   },
-  "main": "./dist/muhaqqiq-core.umd.cjs",
-  "module": "./dist/muhaqqiq-core.js",
+  "main": "./dist/transcriber-core.umd.cjs",
+  "module": "./dist/transcriber-core.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/muhaqqiq-core.js",
-      "require": "./dist/muhaqqiq-core.umd.cjs"
+      "import": "./dist/transcriber-core.js",
+      "require": "./dist/transcriber-core.umd.cjs"
     }
   }
 }

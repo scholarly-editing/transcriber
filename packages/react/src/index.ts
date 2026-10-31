@@ -18,7 +18,7 @@ export type {
   IThemeOverride,
   IThemeSettings,
   IWordConfig,
-} from '@muhaqqiq-editor/core';
+} from '@scholarly-editing/transcriber-core';
 export * from './Editor.tsx';
 export type { ErrorPanelProps } from './ErrorPanel.tsx';
 export { MuhaqqiqErrorPanel } from './ErrorPanel.tsx';

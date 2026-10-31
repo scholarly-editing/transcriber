@@ -11,14 +11,14 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'MuhaqqiqApmAdapter',
-      fileName: 'muhaqqiq-apm-adapter',
+      name: 'TranscriberApmAdapter',
+      fileName: 'transcriber-apm-adapter',
     },
     rollupOptions: {
-      external: ['@muhaqqiq-editor/core'],
+      external: ['@scholarly-editing/transcriber-core'],
       output: {
         globals: {
-          '@muhaqqiq-editor/core': 'MuhaqqiqCore',
+          '@scholarly-editing/transcriber-core': 'TranscriberCore',
         },
       },
     },

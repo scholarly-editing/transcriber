@@ -1,4 +1,4 @@
-import type { IDocument } from '@muhaqqiq-editor/react';
+import type { IDocument } from '@scholarly-editing/transcriber-react';
 
 /**
  * Sample 5-line Latin scholarly document.

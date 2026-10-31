@@ -1,6 +1,6 @@
 import type { EditorView } from '@codemirror/view';
-import type { IDocument, IEditorConfig } from '@muhaqqiq-editor/core';
-import { mountEditor, TranscriptionManager } from '@muhaqqiq-editor/core';
+import type { IDocument, IEditorConfig } from '@scholarly-editing/transcriber-core';
+import { mountEditor, TranscriptionManager } from '@scholarly-editing/transcriber-core';
 import type React from 'react';
 import { useEffect, useRef } from 'react';
 

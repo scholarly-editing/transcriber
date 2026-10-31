@@ -1,5 +1,5 @@
-import type { IDocument, IEditorConfig } from '@muhaqqiq-editor/react';
-import { MuhaqqiqEditor } from '@muhaqqiq-editor/react';
+import type { IDocument, IEditorConfig } from '@scholarly-editing/transcriber-react';
+import { MuhaqqiqEditor } from '@scholarly-editing/transcriber-react';
 import type React from 'react';
 import { useCallback, useState } from 'react';
 import { DocumentJsonViewer } from './DocumentJsonViewer.tsx';

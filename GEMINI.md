@@ -1,12 +1,13 @@
-# muhaqqiq-editor
+# scholarly-editing-transcriber
 
 ## Project Overview
 
-`muhaqqiq-editor` is a monorepo containing the source code for a text editor project, likely specialized (given the name "Muhaqqiq"). It is structured as a **pnpm workspace**.
+`scholarly-editing-transcriber` is a monorepo containing the source code for a scholarly text editor project. It is structured as a **pnpm workspace**.
 
 The project consists of:
 *   **Core Logic:** A framework-agnostic core library based on [CodeMirror 6](https://codemirror.net/).
 *   **React Integration:** A React wrapper for easy usage in React applications.
+*   **APM Adapter:** APM adapter models and utilities.
 *   **Playground:** A React application for testing and development, including a Storybook setup.
 
 ## Project Structure
@@ -14,8 +15,9 @@ The project consists of:
 *   `apps/`
     *   `react-playground`: A demo/test application using React and Vite. It serves as a workbench for developing the editor components.
 *   `packages/`
-    *   `core` (`@muhaqqiq-editor/core`): The main logic of the editor. Depends on `codemirror`.
-    *   `react` (`@muhaqqiq-editor/react`): React bindings for the core editor. Depends on `@muhaqqiq-editor/core`.
+    *   `core` (`@scholarly-editing/transcriber-core`): The main logic of the editor. Depends on `codemirror`.
+    *   `react` (`@scholarly-editing/transcriber-react`): React bindings for the core editor. Depends on `@scholarly-editing/transcriber-core`.
+    *   `apm-adapter` (`@scholarly-editing/transcriber-apm-adapter`): APM adapter integration. Depends on `@scholarly-editing/transcriber-core`.
 
 ## Getting Started
 

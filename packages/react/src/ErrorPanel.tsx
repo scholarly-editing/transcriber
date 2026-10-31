@@ -1,4 +1,4 @@
-import type { IParserDiagnostic } from '@muhaqqiq-editor/core';
+import type { IParserDiagnostic } from '@scholarly-editing/transcriber-core';
 import type React from 'react';
 import './ErrorPanel.css';
 

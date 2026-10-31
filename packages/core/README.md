@@ -1,4 +1,4 @@
-# @muhaqqiq-editor/core
+# @scholarly-editing/transcriber-core
 
 Framework-agnostic scholarly transcription editor built on CodeMirror 6. Provides a bidirectional pipeline between structured document models (`IDocument`) and flat editor text, with config-driven edition symbol handling.
 
@@ -7,7 +7,7 @@ Framework-agnostic scholarly transcription editor built on CodeMirror 6. Provide
 ### Install
 
 ```bash
-pnpm add @muhaqqiq-editor/core
+pnpm add @scholarly-editing/transcriber-core
 ```
 
 ### String Mode (simple)
@@ -15,7 +15,7 @@ pnpm add @muhaqqiq-editor/core
 Mount a plain-text CodeMirror editor with sensible defaults:
 
 ```typescript
-import { mountEditor } from '@muhaqqiq-editor/core';
+import { mountEditor } from '@scholarly-editing/transcriber-core';
 
 const editor = mountEditor({
   parent: document.getElementById('editor')!,
@@ -32,8 +32,8 @@ editor.destroy();
 Use `TranscriptionManager` for full bidirectional sync between an `IDocument` and the editor:
 
 ```typescript
-import { TranscriptionManager } from '@muhaqqiq-editor/core';
-import type { IDocument, IEditorConfig } from '@muhaqqiq-editor/core';
+import { TranscriptionManager } from '@scholarly-editing/transcriber-core';
+import type { IDocument, IEditorConfig } from '@scholarly-editing/transcriber-core';
 
 const manager = new TranscriptionManager({
   document: myDocument,

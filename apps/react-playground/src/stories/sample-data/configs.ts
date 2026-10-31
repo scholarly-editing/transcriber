@@ -1,4 +1,4 @@
-import type { IEditorConfig } from '@muhaqqiq-editor/react';
+import type { IEditorConfig } from '@scholarly-editing/transcriber-react';
 
 /**
  * Arabic RTL editor configuration for classical scholarly texts.

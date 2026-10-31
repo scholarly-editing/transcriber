@@ -14,16 +14,16 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'MuhaqqiqReact',
-      fileName: 'muhaqqiq-react',
+      name: 'TranscriberReact',
+      fileName: 'transcriber-react',
     },
     rollupOptions: {
-      external: ['react', 'react-dom', '@muhaqqiq-editor/core'],
+      external: ['react', 'react-dom', '@scholarly-editing/transcriber-core'],
       output: {
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
-          '@muhaqqiq-editor/core': 'MuhaqqiqCore',
+          '@scholarly-editing/transcriber-core': 'TranscriberCore',
         },
       },
     },

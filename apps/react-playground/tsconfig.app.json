@@ -19,8 +19,8 @@
     /* Path mappings for monorepo source files */
     "baseUrl": ".",
     "paths": {
-      "@muhaqqiq-editor/core": ["../../packages/core/src/index.ts"],
-      "@muhaqqiq-editor/react": ["../../packages/react/src/index.ts"]
+      "@scholarly-editing/transcriber-core": ["../../packages/core/src/index.ts"],
+      "@scholarly-editing/transcriber-react": ["../../packages/react/src/index.ts"]
     },
 
     /* Linting */

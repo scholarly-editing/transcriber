@@ -15,8 +15,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'MuhaqqiqCore',
-      fileName: 'muhaqqiq-core',
+      name: 'TranscriberCore',
+      fileName: 'transcriber-core',
       formats: ['es'],
     },
   },
